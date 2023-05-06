@@ -1,0 +1,10 @@
+./PFSP_instances/100/DD_Ta081.txt
+./PFSP_instances/100/DD_Ta082.txt
+./PFSP_instances/100/DD_Ta083.txt
+./PFSP_instances/100/DD_Ta084.txt
+./PFSP_instances/100/DD_Ta085.txt
+./PFSP_instances/100/DD_Ta086.txt
+./PFSP_instances/100/DD_Ta087.txt
+./PFSP_instances/100/DD_Ta088.txt
+./PFSP_instances/100/DD_Ta089.txt
+./PFSP_instances/100/DD_Ta090.txt
