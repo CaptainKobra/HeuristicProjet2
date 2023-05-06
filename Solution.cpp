@@ -41,6 +41,19 @@ void Solution :: generate_solution_value() {
 }
 
 /**
+ * @brief 
+ * 
+ */
+void Solution :: generate_wtc() {
+    generate_planning();
+    wtc = 0;
+    int number_of_machines = (*jobs)[0]->time_per_machines.size();
+    for (unsigned int i = 0; i < planning.size(); i++) {
+        wtc += planning[i][number_of_machines] * (*jobs)[jobs_indices[i]]->weight;
+    }
+}
+
+/**
  * @brief  Create a solution step by step by adding jobs indices in the list
  * one by one at the best position possible
  * 
@@ -52,18 +65,18 @@ void Solution :: generate_simplified_RZ_permutation() {
         int best_position = 0;
         vector<int> actual_jobs_indices = jobs_indices;
         jobs_indices = RZ_insert(0,actual_jobs_indices,i);
-        generate_solution_value();
-        int best_value = solution_value;
+        generate_wtc();
+        int best_value = wtc;
 
         for (unsigned int j = 1; j <= jobs_indices.size(); j++) {
             jobs_indices = RZ_insert(j, actual_jobs_indices, i);
-            generate_solution_value();
-            if (solution_value < best_value) {
-                best_value = solution_value;
+            generate_wtc();
+            if (wtc < best_value) {
+                best_value = wtc;
                 best_position = j;
-            } else if(solution_value == best_value)  {
+            } else if(wtc == best_value)  {
                 if (rand() % 2 == 0) {
-                    best_value = solution_value;
+                    best_value = wtc;
                     best_position = j;
                 }
             }
