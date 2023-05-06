@@ -16,6 +16,7 @@ class Solution {
     
 
         int solution_value;
+        int wtc;
         int tardiness;
         vector<int> jobs_indices;
         vector<int> jobs_tardiness;
@@ -31,6 +32,8 @@ class Solution {
         void generate_planning();
 
         void generate_solution_value();
+
+        void generate_wtc();
 
         void generate_simplified_RZ_permutation();
 
